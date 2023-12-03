@@ -1,0 +1,107 @@
+#root {
+  text-align: center;
+  width: 100%;
+  
+}
+
+/*.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+} */
+
+.twitter .subtweet{
+  display: none;
+}
+
+.twitter:hover .subtweet{
+  display: block;
+  color:white
+}
+
+.maintwitter::before{
+  content:'';
+  background-image:url("./assets/twitter.svg");
+  background-position:center;
+  background-size:cover;
+  height:20px;
+  width:20px;
+  margin-left:0px;
+  margin-top:0px;
+  position:absolute;
+}
+
+.github::after{
+  content:'';
+  background-image:url("./assets/github.svg");
+  background-position:center;
+  background-size:cover;
+  height:20px;
+  width:20px;
+  margin-left:10px;
+  margin-top:2px;
+  position:absolute;
+}
+
+.socials{
+  color:transparent;
+  min-width: 30px;
+}
+
+@keyframes col1 {
+	0% {fill:rgba(var(--pitti-color),1)}
+	20% {fill:rgba(var(--pitti-color),0.5)}
+	40% {fill:rgba(var(--pitti-color),0)}
+	60% {fill:rgba(var(--pitti-color),0)}
+	80% {fill:rgba(var(--pitti-color),0.5)}
+	100% {fill:rgba(var(--pitti-color),1)}
+}
+
+
+@keyframes col2 {
+	0% {fill:rgba(var(--pitti-color),0.5)}
+	20% {fill:rgba(var(--pitti-color),1)}
+	40% {fill:rgba(var(--pitti-color),0.5)}
+	60% {fill:rgba(var(--pitti-color),0)}
+	80% {fill:rgba(var(--pitti-color),0)}
+	100% {fill:rgba(var(--pitti-color),0.5)}
+}
+
+@keyframes col3 {
+	0% {fill:rgba(var(--pitti-color),0)}
+	20% {fill:rgba(var(--pitti-color),0.5)}
+	40% {fill:rgba(var(--pitti-color),1)}
+	60% {fill:rgba(var(--pitti-color),0.5)}
+	80% {fill:rgba(var(--pitti-color),0)}
+	100% {fill:rgba(var(--pitti-color),0)}
+}
