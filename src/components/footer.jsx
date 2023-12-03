@@ -9,7 +9,7 @@ function Footer() {
                     <path d="M43.9083557951482 18.3962264150943 L58.2210242587601 6.06469002695418 L63.0727762803235 12.4528301886792 L63.7196765498652 29.99999 L37.9649595687332 29.2722371967655 Z" fill="white"/>
             </svg>
           </a>
-          <a className="text-center px-2 github text-white mt-3 mx-auto shrink-0 pr-5 min-[740px]:mt-1" href="https://github.com/pappitti" rel="noreferrer" target="_blank">code available</a>
+          <a className="text-center px-2 github text-white mt-3 mx-auto shrink-0 pr-5 min-[740px]:mt-1" href="https://github.com/pappitti/sector-classification-assistant" rel="noreferrer" target="_blank">code available</a>
         <ul className='relative min-w-[360px] mt-3 justify-center text-white flex flex-nowrap items-center grow min-[740px]:mt-1 min-[740px]:justify-end'> 
           <li className="text-center px-2">Follow-us</li>
           <li className="px-2 flex flex-nowrap twitter maintwitter socials min-[740px]:mt-1">a
