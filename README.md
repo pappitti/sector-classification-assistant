@@ -2,7 +2,7 @@
 
 ## The broader project
 
-This app was built as a demo to illustrate real-life use cases of AI, working exclusively with basic building blocks in order to demystify this technology. This explains why we reinvent the wheel in the worker.js file. In reality, the Transformer.js library has built-in methods to do semantic search. We have not tried to benchmark our DIY approach against the built-in methods.  
+This app was built as a demo to illustrate real-life use cases of AI, working exclusively with basic building blocks in order to demystify this technology. This explains why we reinvent the wheel in the worker.js file. 
 
 Read about other solutions we have built or tested in context of that project to classify companies by sector: https://www.pitti.io/blogs/ELIAAM/sector-classification 
 
@@ -20,5 +20,5 @@ The app runs the quantized version of the models by default. This allows faster 
 
 ## Running other models
 
-If you wish to run other models by modifying MyEmbeddingPipiline in worker.js, note that you need to modify the classification files (/assets/GICS.json and /asset/NACE.json) as the sector description embeddings are stored there, but only for bge-small-en-v1.5 and all-MiniLM-L6-v2. This repo (in python) can provide tools to this by just passing the name of the new model : https://github.com/pappitti/sector-classification
+If you wish to run other models by modifying MyEmbeddingPipeline in worker.js, note that you need to modify the classification files (/assets/GICS.json and /asset/NACE.json) as the sector description embeddings are stored there, but only for bge-small-en-v1.5 and all-MiniLM-L6-v2. This repo (in python) can provide tools to this by just passing the name of the new model : https://github.com/pappitti/sector-classification
 It can also be used to embed sectors according to your own classifications
