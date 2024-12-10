@@ -3,7 +3,7 @@ import gics from './assets/GICS.json' assert { type: 'json' };
 import nace from './assets/NACE.json' assert { type: 'json' };
 
 env.allowLocalModels = false;
-env.useBrowserCache= false; // Trying to retrieve a model via the cache path will throw a 404 error which falls back to the root and Transformers.js tries to process the html file as a model, which obviously fails. Need more work on this, so for now, we just disable the browser cache.
+env.useBrowserCache= true; 
 // largely based on https://huggingface.co/docs/transformers.js/tutorials/react
 
 class MyEmbeddingPipeline {

@@ -137,7 +137,12 @@ function App() {
       }
       if(inputText!==""){
         setProcessing(true);
-        worker.current.postMessage({ task: 'classify', text: inputText, model: model, classification: classification });
+        worker.current.postMessage({ 
+          task: 'classify', 
+          text: inputText, 
+          model: model, 
+          classification: classification 
+        });
       }
   },[model])
 
@@ -145,7 +150,12 @@ function App() {
     // launch new classification if it has been done before
     if(output.length>0){
       setProcessing(true);
-      worker.current.postMessage({ task: 'classify', text: inputText, model: model, classification: classification });
+      worker.current.postMessage({ 
+        task: 'classify', 
+        text: inputText, 
+        model: model, 
+        classification: classification 
+      });
     }},[classification])
 
   useEffect(() => {
@@ -173,10 +183,21 @@ function App() {
             <Models model={model} handleModelChange={handleModelChange}/> 
             <Progress items={progress} model={model}/>
           </div>
-          <textarea className="w-full border-2 border-gray-300 rounded-lg p-2 h-36 mt-3 mb-2" placeholder={`${disabled?"You can enter company description whilst model is loading...":"Enter company description..."}`} value={inputText} onChange={(e) => setInputText(e.target.value)}></textarea>
+          <textarea 
+            className="w-full border-2 border-gray-300 rounded-lg p-2 h-36 mt-3 mb-2" 
+            placeholder={`${disabled?"You can enter company description whilst model is loading...":"Enter company description..."}`} 
+            value={inputText} 
+            onChange={(e) => setInputText(e.target.value)}>
+          </textarea>
           <div className='flex w-full flex-nowrap justify-between mb-10'>
             <Classification classification={classification} handleClassificationChange={handleClassificationChange}/> 
-            <button className="text-white font-bold py-2 px-4 rounded" onClick={handleClick} disabled={disabled}>{disabled?"Wait":"Classify"}</button> 
+            <button 
+              className="text-white font-bold py-2 px-4 rounded" 
+              onClick={handleClick} 
+              disabled={disabled}
+            >
+              {disabled?"Wait":"Classify"}
+            </button> 
           </div>
           {(classification=="GICS") &&
             <div className="my-4"> 
@@ -193,21 +214,41 @@ function App() {
               <div className={`w-full ${selectionReduced?"max-w-[600px] mx-auto":"min-[600px]:w-[250px] min-[600px]:shrink-0"}`}>
                 <div className="w-full flex flex-nowrap mb-2 justify-between">
                   <div className="text-start text-xs italic">Top 10 results:</div>
-                  <div className="text-end text-xs cursor-pointer font-semibold text-[rgb(var(--pitti-color))]" onClick={()=>{setSelectionReduced(prev=>!prev)}}>{selectionReduced?"expand":"reduce"}</div>
+                  <div 
+                    className="text-end text-xs cursor-pointer font-semibold text-[rgb(var(--pitti-color))]" 
+                    onClick={()=>{setSelectionReduced(prev=>!prev)}}
+                  >
+                    {selectionReduced?"expand":"reduce"}
+                  </div>
                 </div>
                 {!selectionReduced &&
-                <div className="border-2 border-gray-300 rounded-lg overflow-hidden" tabIndex={0} ref={parentRef} onFocus={() => setSelectionFocus(true)} onBlur={() => setSelectionFocus(false)}>
+                <div 
+                  className="border-2 border-gray-300 rounded-lg overflow-hidden" 
+                  tabIndex={0} 
+                  ref={parentRef} 
+                  onFocus={() => setSelectionFocus(true)} onBlur={() => setSelectionFocus(false)}
+                >
                   {output.slice(0,10).map((item,index) => 
                       <SectorItem key={`topK${index}`} item={item["levels"]["level4"]} index={index} selected={index===selectedOutput} setSelectedOutput={handleOutputSelection} setParentFocus={parentFocus}/>
                     )} 
                 </div>}
                 {selectionReduced &&
                   <div className="flex flex-nowrap border-2 border-gray-300 min-h-[50px] rounded-lg items-center">
-                     <svg className={`ml-3 pt-2 h-5 w-5 shrink-0 cursor-pointer rotate-90`} viewBox="0 0 11 6" xmlns="http://www.w3.org/2000/svg" onClick={()=>setSelectedOutput(prevSelected => Math.max(prevSelected - 1, 0))}> 
+                     <svg 
+                      className={`ml-3 pt-2 h-5 w-5 shrink-0 cursor-pointer rotate-90`} 
+                      viewBox="0 0 11 6" 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      onClick={()=>setSelectedOutput(prevSelected => Math.max(prevSelected - 1, 0))}
+                    > 
                         <path fill="rgb(var(--pitti-color))" d="M9.87564 0.224476C10.196 0.535394 10.2095 1.05326 9.90567 1.38115L6.01893 5.5763C5.49553 6.14123 4.62843 6.14123 4.10504 5.5763L0.218296 1.38115C-0.0854941 1.05325 -0.0720463 0.535394 0.248332 0.224475C0.568709 -0.086443 1.0747 -0.0726801 1.37849 0.255216L5.06198 4.231L8.74548 0.255216C9.04927 -0.0726798 9.55526 -0.0864426 9.87564 0.224476Z"></path>
                     </svg>
                     <div className="text-center text-sm grow overflow-hidden">{output[selectedOutput]["levels"]["level4"]}</div>
-                    <svg className={`mr-3 pt-2 h-5 w-5 shrink-0 cursor-pointer -rotate-90`} viewBox="0 0 11 6" xmlns="http://www.w3.org/2000/svg" onClick={()=>setSelectedOutput(prevSelected => Math.min(prevSelected + 1, 9))}> 
+                    <svg 
+                      className={`mr-3 pt-2 h-5 w-5 shrink-0 cursor-pointer -rotate-90`} 
+                      viewBox="0 0 11 6" 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      onClick={()=>setSelectedOutput(prevSelected => Math.min(prevSelected + 1, 9))}
+                    > 
                         <path fill="rgb(var(--pitti-color))" d="M9.87564 0.224476C10.196 0.535394 10.2095 1.05326 9.90567 1.38115L6.01893 5.5763C5.49553 6.14123 4.62843 6.14123 4.10504 5.5763L0.218296 1.38115C-0.0854941 1.05325 -0.0720463 0.535394 0.248332 0.224475C0.568709 -0.086443 1.0747 -0.0726801 1.37849 0.255216L5.06198 4.231L8.74548 0.255216C9.04927 -0.0726798 9.55526 -0.0864426 9.87564 0.224476Z"></path>
                     </svg>
                   </div>}

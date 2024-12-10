@@ -11,7 +11,7 @@ function Footer() {
           </a>
           <a className="text-center px-2 github text-white mt-3 mx-auto shrink-0 pr-5 min-[740px]:mt-1" href="https://github.com/pappitti/sector-classification-assistant" rel="noreferrer" target="_blank">code available</a>
         <ul className='relative min-w-[360px] mt-3 justify-center text-white flex flex-nowrap items-center grow min-[740px]:mt-1 min-[740px]:justify-end'> 
-          <li className="text-center px-2">Follow-us</li>
+          <li className="text-center px-2">Follow on</li>
           <li className="px-2 flex flex-nowrap twitter maintwitter socials min-[740px]:mt-1">a
             <a href="https://twitter.com/PITTI_DATA" rel="noreferrer" target="_blank"><div className='px-3 text-sm subtweet twitter'>@PITTI_DATA</div></a>
             <a href="https://twitter.com/PITTI_FI" rel="noreferrer" target="_blank"><div className='px-2 text-sm subtweet twitter'>@PITTI_FI</div></a>
