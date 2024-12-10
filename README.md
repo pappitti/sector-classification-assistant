@@ -12,8 +12,6 @@ This AI-powered classification assistant performs semantic search comparing your
 
 This application was built using the Vite template, which provides a minimal setup to get React working in Vite with HMR and some ESLint rules. The app runs on the client side. This guarantees data privacy but it means that performance can vary between users. Client-side inference requires downloading a model first. Models are downloaded from the HuggingFace hub; bge-small-en-v1.5 is downloaded by default. We kept the option to use another model, all-MiniLM-L6-v2, which may yield better results based on our tests. This app is just a demo but if precision is what you need, you should consider using bge-large-en-v1.5. See "Running other models" below.  
 
-This app does not use cookies and does not handle browser cache so models are downloaded again at each new session. Trying to handle browser cache (disabled in worker.js) would lead the app to crash. Not quite sure if it is just a skill issue on our end or a real bug in the transformers.js library. We will update this repo when we get to the bottom of it.
-
 ## Running other versions of the model
 
 The app runs the quantized version of the models by default. This allows faster download and inference of the model but quantized models are less precise. If you wish to use the original versions of the models (onnx format), you can do so by passing { quantized: false } as an optional argument when pipeline() is called to create a new instance in the worker.js file. Please refer to the Transformers.js documentation : https://huggingface.co/docs/transformers.js/api/pipelines
